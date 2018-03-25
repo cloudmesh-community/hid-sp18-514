@@ -1,3 +1,5 @@
+Homework by: Ravinder Lambadi and Orly Esteban
+
 # Amazon EMR (Elastic Map Reduce)
 Amazon EMR provides a managed Hadoop framework that makes big data processing
 - Easy
