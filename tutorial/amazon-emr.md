@@ -46,8 +46,11 @@ EBS
 ## Create EMR in AWS
 ### Create the buckets
 - Login to AWS console and create the buckets at https://aws.amazon.com/console/. To create the buckets, go to services, click on S3 under Storage. Click on Create bucket button and then provide all the details to complete bucket creation.
-
+- AWS Console
 ![AWS Console](https://github.com/cloudmesh-community/hid-sp18-514/blob/master/tutorial/images/aws_console.JPG?raw=true)
+
+- AWS Login
+![AWS Login](https://github.com/cloudmesh-community/hid-sp18-514/blob/master/tutorial/images/aws_login.JPG?raw=true)
 
 ### Create Key Pairs
 - Login to AWS console, go to services, click on EC2 under compute. Select the Key pairs resoure, click on Create Key Pair and provide Key Pair name to complete the Key pairs creation.
