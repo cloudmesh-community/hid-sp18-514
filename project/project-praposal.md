@@ -1,4 +1,4 @@
-# Universal Cloud REST service framwork to Determine the Validity Of Benford’s Law Using Datasets In Data.gov
+# Universal Cloud REST Service Framwork to Determine the Validity Of Benford’s Law Using Datasets In Data.gov
 
 Orly Esteban and Ravinder Lambadi
 
