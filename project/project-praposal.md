@@ -4,7 +4,7 @@ Orly Esteban and Ravinder Lambadi
 
 ## Keywords
 
-hid-sp18-514, other students hid ??, REST, Benford's Law
+hid-sp18-514, hid-sp18-506, REST, Benford's Law
 
 ## Abstract
 
