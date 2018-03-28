@@ -60,7 +60,7 @@ Benford’s law not only applys to the scale invariant data but also applies to 
 
 Python will be used for Data Analytics and Visualization. As we are planning to analyze multiple data sets to check whether Benford’s law can be applied either HBase or MySQL database will be used for storing Big data set.
 
-several REST services will be used to make this a general cloud based service framework:
+Several REST services will be used to make this a general cloud based service framework:
 
 * REST data service: A service to upload data to the analysis service. Input is the url of the source data. the location is communicated and the data is asynchronously downloaded. A status can be requested and shows how much % is fetched and if it is done.
 
@@ -70,7 +70,7 @@ several REST services will be used to make this a general cloud based service fr
 
 * REST parameter sweep service: variation of the base is conducted to provide the best fit based on the base.
 
-As this is a two person project deployment on two different cloud infrastructures needs to be provided. We recommend the deployment on kupernetes using echo and chameleon cloud. 
+As this is a two person project deployment on two different cloud infrastructures needs to be provided. It will be conducted on kupernetes using echo and chameleon cloud using openstack. All management of containers and virtual machines is done through scriptiong and not GUI's as the use of GUI's is not scalable and not reproducable via scrpts. 
 
 ## Special Consideration to Project Format
 
