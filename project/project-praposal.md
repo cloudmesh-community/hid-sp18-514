@@ -1,9 +1,9 @@
-# Determining The Universality Of Benford’s Law Using Datasets In Data.gov
+# Universal Cloud REST service infrastructure to determine The Universality Of Benford’s Law Using Datasets In Data.gov
 By Orly Esteban and Ravinder Lambadi
 
 ## Keywords
 
-hid-sp18-514, ??, REST, Benford's Law
+hid-sp18-514, other students ??, REST, Benford's Law
 
 ## Abstract
 
@@ -67,9 +67,12 @@ several REST services will be used to make this a general cloud based service fr
 
 * REST visualization service: once the data is computed, it is used visualize the data and retrieve images that are to be placed into reports, The format is to be PDF, Input parameters such as font size and other things are tib be considered. The data is also be placed onto a Web service so that it can be viewed online.
 
+* REST parameter sweep service: variation of the base is conducted to provide the best fit based on the base.
+
 As this is a two person project deployment on two different cloud infrastructures needs to be provided. We recommend the deployment on kupernetes using echo and chameleon cloud. 
 
 ## References
+
 - https://www.data.gov/
 
 - https://en.wikipedia.org/wiki/Benford%27s_law
