@@ -73,7 +73,9 @@ As this is a two person project deployment on two different cloud infrastructure
 
 ## Special Consideration to Project Format
 
-The project will include the definition of Schemas that can be included as Figures in the appendix to this paper and as bibtex refernces. Howeverthey will not count towards the paper length.
+* REST schemas: The project will include the definition of Schemas that can be included as Figures in the appendix to this paper and as bibtex refernces. Howeverthey will not count towards the paper length.
+
+* Work breakdown: The appendix includes a small section with an itemized list of the work breakdown to document what each student did. 
 
 ## References
 
