@@ -1,6 +1,10 @@
 # Determining The Universality Of Benford’s Law Using Datasets In Data.gov
 By Orly Esteban and Ravinder Lambadi
 
+## Keywords
+
+hid-sp18-514, ??, REST, Benford's Law
+
 ## Abstract
 
 It is observed that a lot of real-life data, from personal expenses to world population data, tend to obey Benford’s Law. 
@@ -52,6 +56,16 @@ Benford’s law not only apply to the scale invariant data but also applies to v
 ## Technology Stack
 
 Python will be used for Data Analytics and Visualization. As we are planning to analyze multiple data sets to check whether Benford’s law can be applied either HBase or MySQL database will be used for storing Big data set.
+
+several REST services will be used to make this a general cloud based service framework:
+
+* REST data service: A service to upload data to the analysis service. Input is the url of the source data. the location is communicated and the data is asynchronously downloaded. A status can be requested and shows how much % is fetched and if it is done.
+
+* REST computation servise: the computation service computes the benfords law while using the base and the data stored in the data service as inout. A status message can be used to identify if the comoutation is completed
+
+* REST visualization service: once the data is computed, it is used visualize the data and retrieve images that are to be placed into reports, The format is to be PDF, Input parameters such as font size and other things are tib be considered. The data is also be placed onto a Web service so that it can be viewed online.
+
+As this is a two person project deployment on two different cloud infrastructures needs to be provided. We recommend the deployment on kupernetes using echo and chameleon cloud. 
 
 ## References
 - https://www.data.gov/
