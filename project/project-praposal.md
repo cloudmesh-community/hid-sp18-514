@@ -1,4 +1,4 @@
-# Universal Cloud REST service infrastructure to determine The Universality Of Benford’s Law Using Datasets In Data.gov
+# Universal Cloud REST service framwork to Determine the Validity Of Benford’s Law Using Datasets In Data.gov
 By Orly Esteban and Ravinder Lambadi
 
 ## Keywords
@@ -70,6 +70,10 @@ several REST services will be used to make this a general cloud based service fr
 * REST parameter sweep service: variation of the base is conducted to provide the best fit based on the base.
 
 As this is a two person project deployment on two different cloud infrastructures needs to be provided. We recommend the deployment on kupernetes using echo and chameleon cloud. 
+
+## Special Consideration to Project Format
+
+The project will include the definition of Schemas that can be included as Figures in the appendix to this paper and as bibtex refernces. Howeverthey will not count towards the paper length.
 
 ## References
 
