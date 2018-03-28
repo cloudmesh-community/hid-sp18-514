@@ -1,9 +1,10 @@
 # Universal Cloud REST service framwork to Determine the Validity Of Benford’s Law Using Datasets In Data.gov
-By Orly Esteban and Ravinder Lambadi
+
+Orly Esteban and Ravinder Lambadi
 
 ## Keywords
 
-hid-sp18-514, other students ??, REST, Benford's Law
+hid-sp18-514, other students hid ??, REST, Benford's Law
 
 ## Abstract
 
@@ -19,7 +20,7 @@ Benford’s law is a phenomenon about the distribution of the first-digits of nu
 
 A dataset is said to satisfy Benford’s Law if the leading digits have the following the probability distribution: 
 
-Table1: Probability distribution of Benford’s Law
+Table 1: Probability distribution of Benford’s Law
 
 ![Benfords Law Table](https://github.com/cloudmesh-community/hid-sp18-514/blob/master/project/images/benfords_law.JPG?raw=true)
 
