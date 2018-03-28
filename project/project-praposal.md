@@ -27,13 +27,15 @@ In mathematical terms, Benford’s Law can be represented by the following equat
 
 P(d) = log (d+1) - log (d)
 
-The logarithmic function can be in any base. However, in this paper, only base 10 will be used. For example, in analyzing the leading digit 1,
+Example: In case base 10 is used we obtain the probability for the leading digit 1, as
 
 P(1) = log (1+1) - log(1) = 0.301 
 
 which means, if the dataset complies with Benford's Law, the probability of finding a leading digit 1 is about 30.1% of the time. Therefore, Benford’s Law indicates that the most likely leading digit for us to see is 1, the second most likely 2, the third most 3, the fourth most likely 4, and so on. 
 
-Benford’s law not only apply to the scale invariant data but also applies to various data sources, that we are going to analyze and visualize in this project.
+The logarithmic function can be in any base. We will be developing a REST service that allows the calculation of Benfords Law. The service will allow us to specify the base and the data set as input. 
+
+Benford’s law not only applys to the scale invariant data but also applies to various data sources, that we are going to analyze and visualize in this project.
 
 ## Scope of work
 - Define Benford’s Law
