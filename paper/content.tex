@@ -1,4 +1,4 @@
-% status: 0
+% status: 100
 % chapter: HDFS
 
 \title{Hadoop Distributed File System - Big Data}
@@ -62,11 +62,17 @@ Redundant Array of Inexpensive Disks) systems ~\cite{hid-sp18-506-hdfs}.
 
  See figure below.
  
+\section{HDFS High Availability Diagram} 
+
+\centering\includegraphics[width=\columnwidth]{images/HDFS_HA.png}
+
 \section{Architecture Diagram} 
 
-\TODO{FIGURE IS NOT FOLLOWING OUR TEMPLATE}
+\centering\includegraphics[width=\columnwidth]{images/HDFS_Arch.png}
 
-\centering\includegraphics[width=\columnwidth]{images/HDFSArchitecture.png}
+\centering\includegraphics[width=\columnwidth]{images/HDFA_High_Level_Arch.png}
+
+
 This diagram shows how a large file gets distributed across 
 different datablocks in different racks and the replication of
 datanodes between racks.
