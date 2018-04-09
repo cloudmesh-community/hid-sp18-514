@@ -45,7 +45,11 @@ Datanode, namenode}
 HDFS is an open-source distributed, scalable, and portable redundant
 file system written in Java and was originally based on Google white
 paper named Google File System which eventually became the Hadoop
-Distributed File System that we know today.
+Distributed File System that we know today. HDFS is one of the core 
+component of Hadoop framework. It is a specially designed file system 
+for storing huge dataset with cluster of commodity hardware with 
+streaming access pattern.
+
  
 \section{Overview}
  
@@ -59,36 +63,15 @@ parallel by multiple data nodes therefore making the architecture
 performant. It then achieves high availability by replicating data
 across the datanodes like that of RAID Redundant Array of Inexpensive
 Disks) systems ~\cite{hid-sp18-506-hdfs}.
-
- See Figure \ref{f:hdfs-ha}.
-
-\TODO{FOR WHAT SHOULD WE SEE THE FIGIRE?}
  
-\section{HDFS High Availability Diagram} 
-
-
-\begin{figure}[!ht]
-  \centering
-\centering\includegraphics[width=\columnwidth]{images/HDFS_HA.png}
-  \caption{YOUR CAPTION IS MISSING}\label{f:hdfs-ha}
-\end{figure}
-
-
-
-\section{Architecture Diagram} 
-
-\begin{figure}[!ht]
-\centering\includegraphics[width=\columnwidth]{images/HDFS_Arch.png}
-  \caption{YOUR CAPTION IS MISSING}\label{f:hdfs-arch}
-\end{figure}
+\section{Architecture} 
 
 \begin{figure}[!ht]
 \centering\includegraphics[width=\columnwidth]{images/HDFA_High_Level_Arch.png}
-  \caption{YOUR CAPTION IS MISSING}\label{f:hdfs-level-arch}
+  \caption{HDFS Architecture}\label{f:hdfs-level-arch}
 \end{figure}
 
-
-This diagram shows how a large file gets distributed across different
+The Figure 1 shows how a large file gets distributed across different
 datablocks in different racks and the replication of datanodes between
 racks.
  
@@ -111,6 +94,80 @@ When a client requests for a file, the namecode knows which nodes the
 data is stored and the request is then processed by the multiple nodes
 in parallel. When a node is unavailable the other nodes can take its
 place since the data is replicated across the different nodes.
+
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=\columnwidth]{images/HDFS_Arch.png}
+  \caption{HDFS Components Interaction Architecture}\label{f:hdfs-arch}
+\end{figure}
+
+HDFS Services:
+
+\begin{enumerate}
+	\item NameNode
+	\item Secondary NameNode
+	\item JobTracker
+	\item DataNode
+	\item Task Tracker
+\end {enumerate}
+
+\subsection{JobTracker}
+
+The JobTracker process runs on master node on HFDS.CLient 
+first submits the request to JobTracker for processing,
+JobTracker locates the location of the data on NameNode. 
+Once JobTracker has the data location details, then it submits 
+the requests to TaskTracker on slave nodes. There is an inter communication 
+between JobTracker and TaskTracker through heartbeat for every 3 sec 
+by default if not explicilty configured time interval.If JobTracker 
+does not receive heatbeat from TaskTracker in a given time interval then 
+it assumes that that node on slave is down and assigned
+job is scheduled to another TaskTracjer.JobTracker and 
+TaskTracker are processing services in HDFS.
+
+\subsection{TaskTracker}
+
+A TaskTracker process runs on slave nodes of a cluster. 
+TaskTrackers run tasks and send progress reports to the jobtracker,
+which keeps a record of the overral progress of each job.
+If a job fails, the jobtracker will reschedule it on different trasktracker.
+Each TaskTracker has a finite number of “task slots” based on the 
+ability of a node. The heartbeat protocol permits JobTracker to know 
+how many “task slots” are available in TaskTracker on a slave node.
+It is the responsibility of JobTracker to allocate appropriate jobs to the 
+particular TaskTracker based on load balancing. 
+TaskTracker runs the execution of every MapReduce 
+operation on each slave node. Even though, there is only one 
+TaskTracker per slave node, each TaskTracker can start 
+multiple virtual machines to execute MapReduce operations in parallel. 
+
+
+\section{HDFS High Availability} 
+
+The NameNode is a single point of failure in HDFS cluster.
+Each cluster has a single NameNode in the standard configuration.
+As NameNode is a single point of failure, if it fails all clients
+inclusing scheduled jobs would be unable to read, write and perform
+any actions. In such events the cluster as a whole is unavailable
+until the NameNode either restarted or brought up a new host by
+administrators. This problem also exists during regular maintenance 
+planned activities.
+
+HDFS High Availability addresses the above problem in Hadoop 2.x by providing
+options of 2 NameNodes in the same cluster as active/passive configuration.
+These are mentioned to as active NameNode and standby NameNode.  
+Unlike the Secondary NameNode, the standby NameNode is hot standby, 
+allowing a fast automatic failover to a new NameNode in 
+the case that a host crashes, or an administrator initiated failover
+in case of regular planned maintenance. 
+
+
+\begin{figure}[!ht]
+  \centering
+\centering\includegraphics[width=\columnwidth]{images/HDFS_HA.png}
+  \caption{HDFS High Availability Architecture}\label{f:hdfs-ha}
+\end{figure}
+
 
 \section {Conclusion}
 
