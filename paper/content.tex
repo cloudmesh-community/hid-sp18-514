@@ -56,13 +56,13 @@ streaming access pattern.
 At a high level architecture, a Hadoop cluster has basically a one
 namenode plus a group of datanodes used to store large files usually,
 but not limited to, terabytes in size. The namenode holds the file
-metadata (example the file names, the location of the actual file data
-and others). The actual file data is split into blocks and stored to
+metadata, example the file names, the location of the actual file data
+and others. The actual file data is split into blocks and stored to
 the datanodes. This way the file is read, processed and written in
 parallel by multiple data nodes therefore making the architecture
 performant. It then achieves high availability by replicating data
 across the datanodes like that of RAID Redundant Array of Inexpensive
-Disks) systems ~\cite{hid-sp18-506-hdfs}.
+Disk systems~\cite{hid-sp18-506-hdfs}.
  
 \section{Architecture} 
 
@@ -95,6 +95,40 @@ data is stored and the request is then processed by the multiple nodes
 in parallel. When a node is unavailable the other nodes can take its
 place since the data is replicated across the different nodes.
 
+A rack is box that fits multiple computers and has its own power 
+supply and switch. If any of hardware pieces in a rack fails, the 
+entire rack may fail. In a rack are the Name Node and Data Nodes.
+The name node manages file and directory metadata while the data node
+stores the data.
+
+There are three main actors involved when creating a file in DHFS- 
+namely, the Hadoop client, the Name Node and the Data Nodes in a
+rack. The Hadoop client initiates the file creation and contacts
+the Name Node with the file name and directory path where the file 
+will reside.
+
+The Name Node in turn performs systems validation checks - like if 
+the file or directory already exists, rights and permissions of the
+client and others. If all checks passed, an empty file is created. 
+The client then starts writing to the file in blocks. The file is 
+buffered in the client until a block size is reached. At which point 
+the client contacts the Name Node to request for block allocation. 
+The Name Node then responds to the client which data node is the 
+block allocated. Once the client has the block allocation 
+information, the block is written directly to the Data Node.
+
+To ensure high availability, HDPFS writes the block to different Data
+Nodes. In the event that a Data Node fails, HDFS fails over to the 
+other Data Nodes that has the exact copy of data in the Data Node 
+that failed. By default, HDFS makes 3 copies of a block. This is the 
+called Replication Factor. The Replication Factor can be configured 
+to higher value, especially for critical files.
+
+At the backend, the Data Nodes continually send heartbeat to the Name
+Node so the Name Node is aware which Data Nodes have failed. When 
+that happens, the Name Node could automatically initiate replication 
+of the blocks in the failed Node. The Replication Factor is always 
+maintained by the Name Node. 
 
 \begin{figure}[!ht]
 \centering\includegraphics[width=\columnwidth]{images/HDFS_Arch.png}
@@ -109,7 +143,7 @@ HDFS Services:
 	\item JobTracker
 	\item DataNode
 	\item Task Tracker
-\end {enumerate}
+\end{enumerate}
 
 \subsection{JobTracker}
 
@@ -131,9 +165,9 @@ A TaskTracker process runs on slave nodes of a cluster.
 TaskTrackers run tasks and send progress reports to the jobtracker,
 which keeps a record of the overral progress of each job.
 If a job fails, the jobtracker will reschedule it on different trasktracker.
-Each TaskTracker has a finite number of “task slots” based on the 
+Each TaskTracker has a finite number of task slots based on the 
 ability of a node. The heartbeat protocol permits JobTracker to know 
-how many “task slots” are available in TaskTracker on a slave node.
+how many task slots are available in TaskTracker on a slave node.
 It is the responsibility of JobTracker to allocate appropriate jobs to the 
 particular TaskTracker based on load balancing. 
 TaskTracker runs the execution of every MapReduce 
@@ -169,7 +203,7 @@ in case of regular planned maintenance.
 \end{figure}
 
 
-\section {Conclusion}
+\section{Conclusion}
 
 Therefore, HDFS provides an efficient and reliable solution to process
 large data files more efficiently while maintaining high availability
