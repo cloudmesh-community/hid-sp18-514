@@ -3,8 +3,8 @@ service:
 	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
 	java -jar swagger-codegen-cli.jar generate -i sql-snp-price.yml -l python-flask -o snp -D supportPython2=true
 	pip install pymysql
-	cp snpPriceFunctions.py snp/swagger_server
-	cp config.py snp/swagger_server
+	cp snpPriceFunctions.py snp/
+	cp config.py snp/
 	cp default_controller.py snp/swagger_server/controllers
 	cd snp && pip install -r requirements.txt && python setup.py install
 
