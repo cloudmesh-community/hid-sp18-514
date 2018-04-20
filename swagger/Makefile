@@ -1,7 +1,7 @@
 service:
 	mkdir snp
 	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
-	java -jar swagger-codegen-cli.jar generate -i sql-snp-price.yml -l python-flask -o snp -D supportPython2=true
+	java -jar swagger-codegen-cli.jar generate -i sql-snp-price.yml -l python-flask -o snp -D supportPython3=true
 	pip install pymysql
 	cp snpPriceFunctions.py snp/
 	cp config.py snp/
