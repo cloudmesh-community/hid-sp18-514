@@ -8,15 +8,12 @@ service:
 	cp default_controller.py snp/swagger_server/controllers
 	cd snp && pip install -r requirements.txt && python setup.py install
 
-clean:
-	rm -r snp
-	rm swagger-codegen-cli.jar
+
 
 start:
 	cd snp && python -m swagger_server
 
-stop:
-	kill -9 $$(ps -ef | grep "python -m swagger_server" | awk '{print $$2}')
+
 
 test:
 	curl -X GET "http://localhost:8080/cloudmesh/snp" -H "accept: application/json"
@@ -25,6 +22,13 @@ test:
 	curl -X PATCH "http://localhost:8080/cloudmesh/snp/2018-04-19" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"snpDate\": \"2017-4-18\", \"open\": 2342.530029, \"high\": 2348.350098, \"close\": 2342.189941, \"low\": 2334.540039, \"adjClose\": 2342.189941, \"volume\": 3269840001}"
 	curl -X DELETE "http://localhost:8080/cloudmesh/snp/2018-04-19" -H "accept: application/json"
 
+stop:
+	ps -ef | grep swagger | grep -v "grep"| awk '{print $$2}' | xargs kill -9
+
+clean:
+	rm -r snp
+	rm swagger-codegen-cli.jar
+	
 container:
 	docker build -t cloudmesh-snp-sql .
 	docker create cloudmesh-snp-sql
