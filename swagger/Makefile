@@ -9,11 +9,8 @@ service:
 	cd snp && pip install -r requirements.txt && python setup.py install
 
 
-
 start:
 	cd snp && python -m swagger_server
-
-
 
 test:
 	curl -X GET "http://localhost:8080/cloudmesh/snp" -H "accept: application/json"
