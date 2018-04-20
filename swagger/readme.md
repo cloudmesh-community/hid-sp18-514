@@ -1,6 +1,6 @@
 ## Homework by
-# Ravinder Lambadi, hid-sp18-514
-# Orly Eseban, hid-sp18-506
+- Ravinder Lambadi, hid-sp18-514
+- Orly Eseban, hid-sp18-506
 # Swagger REST API - Manage S&P 500 Pricing Data in the Database
 
 This API provides operations like get all S&P pricing data, filter data by date, delete data by date, update data by date, and insert pricing details in he database using HTTP methods such as GET, PUT, PATCH and DELETE.
