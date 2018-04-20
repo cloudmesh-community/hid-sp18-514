@@ -13,10 +13,10 @@ start:
 	cd snp && python -m swagger_server
 
 test:
-	curl -X GET "http://localhost:8080/cloudmesh/snp" -H "accept: application/json"
-	curl -X GET "http://localhost:8080/cloudmesh/snp/2018-4-18" -H "accept: application/json"
 	curl -X PUT "http://localhost:8080/cloudmesh/snp" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"snpDate\": \"2018-04-19\", \"open\": 2701.16, \"high\": 2702.51, \"close\": 2695.99, \"low\": 2692.49, \"adjClose\": 2695.99, \"volume\": 241378247}"
 	curl -X PATCH "http://localhost:8080/cloudmesh/snp/2018-04-19" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"snpDate\": \"2017-4-18\", \"open\": 2342.530029, \"high\": 2348.350098, \"close\": 2342.189941, \"low\": 2334.540039, \"adjClose\": 2342.189941, \"volume\": 3269840001}"
+	curl -X GET "http://localhost:8080/cloudmesh/snp" -H "accept: application/json"
+	curl -X GET "http://localhost:8080/cloudmesh/snp/2018-4-18" -H "accept: application/json"
 	curl -X DELETE "http://localhost:8080/cloudmesh/snp/2018-04-19" -H "accept: application/json"
 
 stop:
