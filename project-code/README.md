@@ -28,11 +28,28 @@
         make start
         ```
 4. Testing
-	-  Download the excel file dataset from data.gov to verify Benford's law
+	- Once Python Eve server started. Open new terminal and navigate project-code folder and then perform rest of the steps.
+	```sh
+	cd hid-sp18-514/project-code
+	 ```
+	-  Download the excel file type dataset from data.gov to verify Benford's Law
 	```sh
 	curl -X GET 'http://localhost:5000/downloadDataSet?dataLocation=https://inventory.data.gov/dataset/67567804-073d-40ad-a710-2b0bed8b84e2/resource/360b0748-d161-4857-a7dc-dfccfaeea096/download/nsn-extract-4-5-17.xlsx&fileName=nsn-extract-4-5-17.xlsx'
     ```
-	-  Benford's Law verification on excel file dataset
+	-  Benford's Law verification on excel file type dataset
 	```sh
 	curl -X GET 'http://localhost:5000/computeBenfordLawExcelDataSet?fileName=nsn-extract-4-5-17.xlsx&columnName=Price'
+	```
+	- Download the CSV file type dataset from data.gov to verify Benford's Law
+	```sh
+	curl -X GET 'http://localhost:5000/downloadDataSet?dataLocation=https://data.ok.gov/sites/default/files/res_purchase_card_%28pcard%29_fiscal_year_2014_3pcd-aiuu.csv&fileName=fiscal_year_2014.csv'
+	```
+	- Benford's Law verification on CSV file type dataset
+	```sh
+	curl -X GET 'http://localhost:5000/computeBenfordLawCSVDataSet?fileName=fiscal_year_2014.csv&columnName=Amount'
+	```
+5. Machine Leaning datase - Australian Credit Approval
+	- Perform Benford's Law verification on Web dataset to detect the fraud on credit card dataset
+	```sh
+	curl -X GET 'http://localhost:5000/australianCreditApproalDS?dataURL=https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/australian/australian.dat&columnName=A2'
 	```
