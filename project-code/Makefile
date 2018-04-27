@@ -13,6 +13,5 @@ service:
 	pip install matplotlib
 	pyenv install anaconda3-4.3.1
 	alias ANA="pyenv activate anaconda3-4.3.1"
-	ANA
 start:
 	python BenfordLawVerificationService.py
