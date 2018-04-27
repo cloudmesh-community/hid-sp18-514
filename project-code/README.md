@@ -1,6 +1,6 @@
 ## Project by
 - Ravinder Lambadi, hid-sp18-514
-- Orly Eseban, hid-sp18-506
+- Orly Esteban, hid-sp18-506
 # Please follow the below steps to test the Benford's Law verification.
 
 ### Prerequiste
