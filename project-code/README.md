@@ -23,6 +23,10 @@
         ```sh
         make service
         ```
+	- Edit .bashrc file and add the below entry and save it
+		```sh
+        alias ANA="pyenv activate anaconda3-4.3.1"
+        ```
     -  Start the service
         ```sh
         make start
