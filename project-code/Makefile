@@ -1,7 +1,3 @@
-#
-# Naturally you need to adapt this to make work for your project
-#
-
 service:
 	pip install pip -U
 	pip install eve
