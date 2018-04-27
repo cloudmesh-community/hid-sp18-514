@@ -37,7 +37,7 @@ def downloadDataSet():
 	dataLocation = request.args.get('dataLocation')
 	fileName = request.args.get('fileName')
 
-	if isEmptyString(fileName) or isEmptyString(column):
+	if isEmptyString(fileName) or isEmptyString(dataLocation):
 		return "dataLocation or fileName is Empty"
 
 	resp = requests.get(dataLocation)
