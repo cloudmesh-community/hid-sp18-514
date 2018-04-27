@@ -58,10 +58,10 @@ distribution of the digits is evenly flat, each digit from
 1 thru 9 would appear 11 percent of the time. However, 
 with with Bendford’s Law, The probability distribution 
 tends to go lower from the digit 1 to the digit 
-9 ~\cite{hid-sp18-514-benfordwiki}.
+9~\cite{hid-sp18-514-benfordwiki}.
 For example, the digit 1 tends to occur about 30 percentage 
-of the time while the digit 9 about 4.6% of the time. 
-The chart below shows the frequency of 
+of the time while the digit 9 about 4.6 percentage 
+of the time. The chart below shows the frequency of 
 leading digits that obey Benford’s Law vs flat even distribution
 
 
@@ -89,12 +89,12 @@ digits have the following the probability distribution:
 In mathematical terms, Benford’s Law can be represented 
 by the following equation:
 
-P(d) = log (d+1) - log (d)
+P (d) = log (d+1) - log (d)
 
 Example: In case base 10 is used we obtain the 
 probability for the leading digit 1, as
 
-P(1) = log (1+1) - log(1) = 0.301
+P (1) = log (1+1) - log (1) = 0.301
 
 which means, if the dataset complies 
 with Benford's Law, the probability of finding a 
@@ -152,7 +152,7 @@ Below parameters need to pass to this REST API:
 
 \begin{enumerate}
 \item dataLocation - Location of the dataset. 
- Ex: ~\cite{hid-sp18-514-excelDatalocation}
+ Ex:~\cite{hid-sp18-514-excelDatalocation}
 \item fileName - Dataset file name to be downloaded 
  as, Ex: nsn-extract.xlsx
 \end{enumerate}
@@ -181,7 +181,7 @@ tested on on premise and cloud environment.
 This service requires two input paramaters to 
 determine Befords's Law. This service
 process and send back the output 
-for all CSV and Text based datasets .
+for all CSV and Text based datasets.
 
 Below parameters need to pass to this REST API:
 
@@ -196,17 +196,17 @@ Below parameters need to pass to this REST API:
 \subsection{Benfords Law Verification for National Stock 
 Number Extract Datset - Excel}
 National Stock Number extract includes the current 
-listing of National Stock Numbers (NSNs) , 
+listing of National Stock Numbers, 
 NSN item name and descriptions, and current 
 selling price of each product listed in GSA 
 Advantage and managed by GSA. Each NSN is 
 listed with the vendors description of the item. 
 Some descriptions exceed the standard length and are 
-truncated ~\cite{hid-sp18-514-nsn-ds-desc}.
+truncated~\cite{hid-sp18-514-nsn-ds-desc}.
 
 BenfordLawExcelDataSetService returned the below
-output for the dataset ~\cite{hid-sp18-514-excelDatalocation}
-and columns name was : Price.
+output for the dataset~\cite{hid-sp18-514-excelDatalocation}
+and columns name was:Price.
 
 \begin{figure}[!ht]
 \centering\includegraphics[width=\columnwidth]{images/benford_nsn.JPG}
@@ -222,10 +222,10 @@ This dataset contains information on purchases made through
 the purchase card programs administered by the state and higher 
 ed institutions. The purchase card information will be updated monthly 
 after the end of the month. For example, July information will 
-be added in August ~\cite{hid-sp18-514-purchase-card-desc}
+be added in August~\cite{hid-sp18-514-purchase-card-desc}
 
 BenfordLawCSVDataSetService returned the below
-output for the dataset ~\cite{hid-sp18-514-purchase-card-ds}
+output for the dataset~\cite{hid-sp18-514-purchase-card-ds}
 
 \begin{figure}[!ht]
 \centering\includegraphics[width=\columnwidth]{images/benford_card_transactions.JPG}
@@ -236,7 +236,7 @@ The line is Benford’s Law probabilities and the bars are
 the actual occurrences.
 
 
-\section {Conclusion}
+\section{Conclusion}
 Benford’s Law can recognize the probabilities of highly  likely or 
 highly unlikely frequencies of numbers in a data set.The 
 probabilities are based on mathematical logarithms of the occurrence 
