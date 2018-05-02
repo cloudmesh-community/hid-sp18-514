@@ -88,12 +88,12 @@ digits have the following the probability distribution:
 In mathematical terms, Benford’s Law can be represented 
 by the following equation:
 
-P (d) = log (d+1) - log (d)
+\[P (d) = \log (d+1) - \log (d)\]
 
 Example: In case base 10 is used we obtain the 
 probability for the leading digit 1, as
 
-P (1) = log (1+1) - log (1) = 0.301
+\[P (1) = \log (1+1) - \log (1) = 0.301 \]
 
 which means, if the dataset complies 
 with Benford's Law, the probability of finding a 
@@ -132,7 +132,7 @@ predicted by Benford’s Law~\cite{hid-sp18-514-benfordwiki}
 \section{REST Services To Determive Benfords's Law}
 
 There are four universal services have been built to determine
-whether the provided data set follows Befords's law.
+whether the provided data set follows Benford’sfords's law.
 
 \begin{enumerate}
  \item downloadDataSet
@@ -160,7 +160,7 @@ Below parameters need to pass to this REST API:
 \subsection{computeBenfordLawExcelDataSet}
 computeBenfordLawExcelDataSet is a REST API service tested on 
 on-premise and cloud environment. This service requires two 
-input paramaters to determine Befords's Law. This service
+input paramaters to determine Benfords's Law. This service
 process and send back the output 
 for all excel based datasets.
 
@@ -176,10 +176,10 @@ Below parameters need to pass to this REST API:
 
 \subsection{computeBenfordLawCSVDataSet}
 computeBenfordLawCSVDataSet is a REST API service 
-tested on on premise and cloud environment. 
+tested on on-premise and cloud environment. 
 This service requires two input paramaters to 
-determine Befords's Law. This service
-process and send back the output 
+determine Benfords's Law. This service
+process and sends back the output 
 for all CSV and Text based datasets.
 
 Below parameters need to pass to this REST API:
