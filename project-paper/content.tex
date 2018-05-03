@@ -25,22 +25,28 @@
 \email{esteban@iu.edu}
 
 \begin{abstract}
-It is observed that a lot of real-life data, from personal 
-expenses to world population data, tend to obey Benford’s Law. 
-Because of this phenomenon, Benford’s Law has been leveraged 
-in a lot of statistical analysis – including fraud detection. 
-In 2009,  Benford’s Law has been utilized to detect election 
-fraud in Iran. In this paper, the authors will determine the 
-universality of the law. Is the law applicable to any dataset? 
-The authors will analyze and visualize data on publicly 
-available data sets at data.gov and determine which 
-datasets follow this law and which ones do not, if any.
+Analyzing large amount of data detecting for anomalies 
+can be a painful endeavor. Not only would you need a 
+reliable algorithm to analyze data but also an 
+infrastructure to support an ever growing data to 
+analyze. This paper attempts to address these concerns. 
 
-In this paper, the authors created web services deployed 
-on the cloud that take large datasets, analyze them and 
-return a graph that shows the leading digits distribution 
-of the selected field in the dataset compared side by side 
-with Benford’s Law predicted distribution.
+It is observed that a lot of real-life data, 
+from personal expenses to world population data, 
+tend to obey Benford’s Law. Because of this phenomenon, 
+Benford’s Law has been leveraged 
+in a lot of statistical analysis – including fraud 
+detection. In 2009,  Benford’s Law has been utilized 
+to detect election fraud in Iran.
+
+In this paper, the authors first determined 
+the universality of the law and drew criteria 
+where the the law is applicable by citing 
+observations made from other source and more 
+importantly the authors’ own observations by 
+using data from data.gov. The authors then 
+created a web service using the law and deployed 
+the service to the cloud.
 
 \end{abstract}
 
@@ -128,6 +134,12 @@ predicted by Benford’s Law~\cite{hid-sp18-514-benfordwiki}
 \centering\includegraphics[width=\columnwidth]{images/benford_country.JPG}
   \caption{First Digit Population Distribution}\label{f:pop-dist-countries}
 \end{figure}
+
+The logarithmic function can be in any base. 
+We have developed a REST service that allows
+the calculation of Benford's Law. 
+The service will allow us to specify 
+the base and the data set as input. 
 
 \section{Objectives}
 The popularity and the size of data being 
@@ -325,26 +337,66 @@ the actual occurrences. Few bars are above the line hence,
 there is an indication of probable fraud in the transactions.
 
 
+\section{Further Analysis Needed}
+The results drawn from these examples should 
+be analyzed with great caution. They should 
+never be used as an absolute proof of presence 
+or absence of manipulation. A clever fraud who 
+is familiar with the law can still manipulate 
+the data that remain undetectable with the 
+application of Benford’s Law.
+
+However, we should not easily dismiss the results 
+when comparing the data with Benford’s Law. 
+A good fitness test must be conducted to determine 
+how the data conforms with Benford’s Law.
+For the goodness of fit test, the following can be implemented:
+
+\begin{enumerate}
+\item A visual graph of the actual data distribution 
+layed on top of the expected BL distribution
+\item Root mean square error fit index.
+\item Chi-square goodness of fit test. Although, 
+this is sensitive to sample sizes and outliers.
+\end{enumerate}
+
+The level of significance for chi-square test 
+but a widely acceptable confidence level is 95 percentage
+
 \section{Conclusion}
-Benford’s Law can recognize the probabilities of highly  likely or 
-highly unlikely frequencies of numbers in a data set.The 
-probabilities are based on mathematical logarithms of the occurrence 
-of digits from the given data sets for Benford's validity. We have 
-verified Benford law for stock price dataset and fraud detection on 
-card transactions.The limitation with Benford Law is, it performs 
+This paper has shown the Benford’s Law is observed in 
+the the real life data in data.gov and in many other 
+cited studies. Given that Benford’s Law is gaining prominence 
+and as data sizes explode, there is a need for effective scanning
+of the data to identify conformity the with Benford’s Law. 
+The authors have successfully set up this mechanism to 
+keep up with the expected load.
+
+
+Benford’s Law can recognize the probabilities of highly  
+likely or highly unlikely frequencies of numbers in a data set.
+The probabilities are based on mathematical logarithms of the 
+occurrence of digits from the given data sets for Benford's 
+validity. We have verified Benford law for stock price 
+dataset and fraud detection on card transactions.
+The limitation with Benford Law is, it performs 
 Benford Law analysis on Numeric data type column only. 
-And for accurate analysis it requires large dataset.
+And for accurate analysis it requires large dataset. 
 For smaller dataset the analysis might not accurate.
 
-As seen in the results above, the Law tends to apply the most 
-to data that are uniformly distributed across several orders of magnitude. 
-It may not apply if the range of values are very tight. 
-The credit card transaction above is way off Benford’s 
-Law prediction. This should prompt further investigation 
-since credit card transactions are usually in orders of several 
-magnitude. It’s either the transaction are purposely fraudulent 
-or unintentionally filled with bad data or it is one 
-of the few exceptions where Benford’s Law does not apply.
+As seen in the results above, the Law tends to 
+apply the most to data that are uniformly 
+distributed across several orders of magnitude. 
+It may not apply if the range of values are 
+very tight. The credit card transaction above 
+is way off Benford’s Law prediction. 
+This should prompt further investigation 
+since credit card transactions are usually 
+in orders of several magnitude. 
+It’s either the transaction are purposely 
+fraudulent or unintentionally filled 
+with bad data or it is one of 
+the few exceptions where Benford’s Law does not apply.
 
 
 \bibliographystyle{ACM-Reference-Format}
